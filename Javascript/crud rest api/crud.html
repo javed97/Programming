@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="crud.css">
+</head>
+
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="#">Javed</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <button class="btn btn-dark" id="reload" onclick="getReq()">Reload</button></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><button class="btn btn-dark" id="add">Add</button></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <button class="btn btn-dark"
+                            id="deleteNavbarButton">Delete</button></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <button class="btn btn-dark"
+                            id="updateNavbarButton" onclick="updateReq()">Update</button></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" id="searchFieldNavbar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchNavbarButton">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <table class="table table-dark bd-highlight text-center ">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Roll No</th>
+                <th scope="col">Date</th>
+                <th scope="col">Male</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody id="table"></tbody>
+    </table>
+
+    <div class="container">
+        <div id="addOverlay" class="overlay">
+            <div class="card text-center">
+                <div class="card-title">
+                    <h3>Post your data</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" class="form-control" id="age">
+                    </div>
+                    <div class="form-group">
+                        <label for="rollno">Roll No</label>
+                        <input type="text" class="form-control" id="rollno">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="gender" value="male" id="male" data-unchecked-value="female">
+                        <label class="custom-control-label" for="male">Male</label>
+                    </div>
+
+                    <button class="btn btn-dark" id="post">Post</button>
+                    <button class="btn btn-dark" id="close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="deleteOverlay" class="overlay">
+            <div class="card text-center">
+                <div class="card-title">
+                    <h3>Enter ID</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="deleteID">
+                    </div>
+                    <button class="btn btn-dark" id="deleteOverlayDeleteButton">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="updateOverlay" class="overlay">
+            <div class="card text-center">
+                <div class="card-title">
+                    <h3>Update your data</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="updateOverlayID">ID</label>
+                        <input type="text" class="form-control" id="updateOverlayID">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateOverlayName">Name</label>
+                        <input type="text" class="form-control" id="updateOverlayName">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateOverlayAge">Age</label>
+                        <input type="text" class="form-control" id="updateOverlayAge">
+                        <label for="updateOverlayRollno">Roll No</label>
+                        <input type="text" class="form-control" id="updaterOverlayRollno">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateOverlayEmail">Email address</label>
+                        <input type="email" class="form-control" id="updateOverlayEmail" aria-describedby="emailHelp">
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="updateOverlayMale">
+                        <label class="custom-control-label" for="updateOverlayMale">Male</label>
+                    </div>
+
+                    <button class="btn btn-dark" id="updateOverlayPutButton">Put</button>
+                    <button class="btn btn-dark" id="updateOverlayCloseButton">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"> </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"> </script>
+    <script src="crud.js"></script>
+</body>
+
+</html>

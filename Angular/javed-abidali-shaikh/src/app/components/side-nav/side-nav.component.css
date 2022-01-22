@@ -1,0 +1,63 @@
+.aside-wrapper {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0px;
+  color: white;
+}
+
+.aside-wrapper-header {
+  background-color: #f95959;
+  color: white;
+  padding: 10px 20px;
+}
+
+.aside-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: #1b2129;
+  padding: 10px 20px;
+}
+
+.aside-restaurant-details {
+  padding-top: 25px;
+}
+
+.aside-restaurant-details select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.aside-restaurant-details img{
+    width: 100%;
+}
+
+.aside-wrapper-header .title {
+  margin: 0;
+}
+
+.aside-wrapper-header p {
+  font-size: 1rem;
+  margin: 3px 0px;
+}
+
+.nav-route{
+    padding: 0;
+}
+
+.nav-route li {
+  list-style: none;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgb(109, 107, 107);
+  padding-bottom: 0.6rem;
+}
+
+.nav-route-link{
+text-decoration: none;
+    color: white;
+}
+

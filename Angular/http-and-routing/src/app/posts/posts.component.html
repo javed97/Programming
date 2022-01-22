@@ -1,0 +1,30 @@
+<div class="container">
+  <input
+    type="text"
+    (keyup.enter)="createPost(title)"
+    #title
+    class="form-control my-3"
+  />
+
+  <ul class="list-group">
+    <li *ngFor="let post of posts; index as i" class="list-group-item">
+      <button
+        (click)="updatePost(post)"
+        type="button"
+        class="btn btn-outline-primary btn-sm mx-2"
+      >
+        Update
+      </button>
+      <button
+        (click)="deletePost(post)"
+        type="button"
+        class="btn btn-outline-danger btn-sm mx-2"
+      >
+        Delete
+      </button>
+      <span class="mx-2">{{ post.id }}</span>
+      <span class="mx-2">{{ i }}</span>
+      {{ post.title }}
+    </li>
+  </ul>
+</div>

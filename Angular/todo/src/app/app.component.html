@@ -1,0 +1,35 @@
+<div class="todo-wrapper">
+  <h1>Add Task</h1>
+
+  <div class="input-task">
+    <input #input type="text" />
+    <button (click)="addTask(input)">Add</button>
+  </div>
+
+  <div class="todo-list">
+    <h2>Todo List</h2>
+    <div class="task" *ngFor="let item of originalTaskArray; index as i">
+      <div class="task-content">
+        <input
+          type="checkbox"
+          (change)="moveToCompleted(item); deleteTask(i)"
+        />
+        <label>{{ item }}</label>
+      </div>
+      <button (click)="deleteTask(i)">Delete</button>
+    </div>
+  </div>
+
+  <div class="todo-list">
+    <h2 *ngIf="completedTaskArray.length > 0">Completed List</h2>
+    <div class="task" *ngFor="let item of completedTaskArray; index as i">
+      <div class="task-content">
+        <input type="checkbox" checked (change)="deleteFromCompleted(i); moveToOriginal(item)"/>
+        <label
+          ><del>{{ item }}</del></label
+        >
+      </div>
+      <!-- <button (click)="deleteTask(i)">Delete</button> -->
+    </div>
+  </div>
+</div>

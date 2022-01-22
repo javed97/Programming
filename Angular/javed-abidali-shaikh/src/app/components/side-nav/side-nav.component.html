@@ -1,0 +1,34 @@
+<aside class="aside-wrapper">
+  <header class="aside-wrapper-header">
+    <h1 class="title">zomato</h1>
+    <p>Menu Dashboard</p>
+  </header>
+
+  <section class="aside-main">
+    <section class="aside-restaurant-details">
+      <select (change)="selectOption($event)">
+        <option
+          *ngFor="let item of allRestaurantData"
+          [value]="JSON.stringify(item)"
+        >
+          {{ item.ID }}
+        </option>
+      </select>
+      <img [src]="selectedRestaurant.restaurant_image" alt="food-image" />
+      <p>{{ selectedRestaurant.Name }}</p>
+      <p class="restaurant-address">
+        {{ selectedRestaurant.restaurant_address }}
+      </p>
+      <p>RES ID: {{ selectedRestaurant.ID }}</p>
+    </section>
+
+    <nav>
+      <ul class="nav-route">
+        <li><a class="nav-route-link" href="#" routerLink="/charges">Charges</a></li>
+        <li><a class="nav-route-link" routerLink="/">Delivery Menu</a></li>
+        <!-- <li><a class="nav-route-link" href="#">Meals for One</a></li> -->
+        <!-- <li><a class="nav-route-link" href="#">Help</a></li> -->
+      </ul>
+    </nav>
+  </section>
+</aside>

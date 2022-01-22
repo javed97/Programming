@@ -1,0 +1,11 @@
+<label>Enter Value</label>
+<input type="text" (input)="displayData($event)">
+
+<p>Testng two way binding</p>
+<input [(ngModel)]="name" type="text"><br>
+{{name}}
+
+
+<div *ngIf = "name === 'Javed'"  [style] >Yes, true</div><br> <br>
+<div *ngFor="let item of cars">{{item}}</div>
+

@@ -1,0 +1,20 @@
+<h1>Angular</h1>
+<p>{{ authors.length }} {{ title }}</p>
+<ul>
+  <li *ngFor="let author of authors">{{ author }}</li>
+</ul>
+
+<input [(ngModel)]="name" (keyup.enter)="onKeyUp()" />
+<p>The word you are entering : {{ name | titleCase }}</p>
+
+<!-- <i class="bi bi-star-fill"></i> -->
+
+<span (click)="swapClass()">
+  <i
+    class="bi"
+    [class.bi-star]="!currentClass"
+    [class.bi-star-fill]="currentClass"
+  ></i>
+</span>
+
+

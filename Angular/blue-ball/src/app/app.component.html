@@ -1,0 +1,21 @@
+<div class="game-wrapper mt-5">
+  <div class="container text-center">
+    <h1>Welcome to the Blue Ball Game !</h1>
+    <app-welcome-template
+      (stateEmitter)="setGameValue($event)"
+      *ngIf="start"
+    ></app-welcome-template>
+    <div class="ball-wrapper" *ngIf="!start">
+      <h4>Attempts: {{ attempts }}</h4>
+      <div class="ball-container">
+        <app-ball
+          *ngFor="let item of items"
+          [counter]="item"
+          [randomNumber]="randomNumber"
+          [attempts]="attempts"
+          (attemptState)="displayAttempts($event)"
+        ></app-ball>
+      </div>
+    </div>
+  </div>
+</div>
