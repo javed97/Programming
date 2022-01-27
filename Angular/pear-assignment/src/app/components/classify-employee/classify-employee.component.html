@@ -1,0 +1,16 @@
+<div class="radio-container">
+  <div class="input-container">
+    <input type="radio" value="all" name="gender" id="all" (change)="selectGender($event)" />
+    <label for="all">All</label>
+  </div>
+  <div class="input-container">
+    <input type="radio" value="male" name="gender" id="male" (change)="selectGender($event)" />
+    <label for="all">Male</label>
+  </div>
+  <div class="input-container">
+    <input type="radio" value="female" name="gender" id="female" (change)="selectGender($event)" />
+    <label for="all">Female</label>
+  </div>
+</div>
+
+<app-display-employees [employeeDetails]="genderData"></app-display-employees>

@@ -1,20 +1,5 @@
-<!-- <div class="container">
-    <div class="row row-wrapper">
-        <div class="col-lg-3 mb-2" *ngFor="let element of cryptoData">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                  <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{{element.symbol}}</h5>
-                    <small><span>Low Price: {{ element.lowPrice }}</span> <span>High Price: {{ element.highPrice}}</span></small>
-                  </div>
-                </a>
-              </div>
-        </div>
-    </div>
-</div> -->
-
 <ng-template ngIf="type">
   <input type="text" [(ngModel)]="userName" [value]="userName" name="" id="" />
   <p>{{ userName }}</p>
-  <ng-content></ng-content>
+  <!-- <ng-content></ng-content> -->
 </ng-template>
