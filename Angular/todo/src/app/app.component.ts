@@ -6,13 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  demoData: any = '';
+
   ngOnInit(): void {
     this.originalTaskArray = JSON.parse(
       localStorage.getItem('originalTaskArray') || '[]'
     );
-    
   }
-  
+
   title = 'todo';
 
   originalTaskArray: string[] = [];
@@ -45,5 +46,9 @@ export class AppComponent implements OnInit {
 
   deleteFromCompleted(i: number) {
     this.completedTaskArray.splice(i, 1);
+  }
+
+  recieveData(data: any) {
+    this.demoData = data;
   }
 }
